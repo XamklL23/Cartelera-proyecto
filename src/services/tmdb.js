@@ -9,3 +9,11 @@ export async function obtenerPeliculasTop(){
     const datos = await respuesta.json()
     return datos.results
 }
+
+export async function buscarPeliculas(texto) {
+  const respuesta = await fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=es-ES&query=${encodeURIComponent(texto)}`
+  )
+  const datos = await respuesta.json()
+  return datos.results
+}
